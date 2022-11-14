@@ -31,6 +31,7 @@ export const OptionsPicker = ( { startDateIn, endDateIn, leagueArrIn, selectedMa
     start: parseDate(startDateIn),
     end:  parseDate(endDateIn)
   });
+  const [isRetrieveButtonDisabled, setIsRetrieveButtonDisabled] = useState(false);
 
   const router = useRouter();
   const animatedComponents = makeAnimated();
@@ -45,11 +46,13 @@ export const OptionsPicker = ( { startDateIn, endDateIn, leagueArrIn, selectedMa
 
   useEffect(() => {
     const handleRouteChange = (url, { shallow }) => {
-        setProgressMsg(`Retrieving data ${url}`);
+        setProgressMsg(`Retrieving match data...`);
+        setIsRetrieveButtonDisabled(true);
     }
 
     const handleRouteComplete = (url, { shallow }) => {
       setProgressMsg(`Done retrieving data.`);
+      setIsRetrieveButtonDisabled(false);
     }
 
     router.events.on('routeChangeStart', handleRouteChange)
@@ -99,6 +102,7 @@ export const OptionsPicker = ( { startDateIn, endDateIn, leagueArrIn, selectedMa
           <div className={styles.retrieveMatches}>
             <Button
               variant="primary"
+              isDisabled={isRetrieveButtonDisabled}
               width="200px"
               onPress={() => {
                 // setProgressMsg('Retrieving match data...');
@@ -107,7 +111,7 @@ export const OptionsPicker = ( { startDateIn, endDateIn, leagueArrIn, selectedMa
                 );
               }}
             >
-              Submit
+              Retrieve matches
             </Button>
           </div>
         </View>

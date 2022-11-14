@@ -126,16 +126,15 @@ export default function Home({ footballData, venueData, startDate, endDate, leag
           <TabPanels>
             <Item key="FoR">
               <div className={styles.main}>
-
                 <Grid
                   areas={['optionsPicker optionsPicker optionsPicker progressSection',
                           'fixtureTable fixtureTable fixtureTable fixtureTable',
-                          'itineraryPDF itineraryPDF footer footer']}
+                          'footer footer footer footer']}
                   columns={['1fr','1fr', '1fr', '1fr']}
-                  rows={['3vh','auto','auto']}
+                  rows={['3vh','68vh','auto']}
                   height='95vh'
                   gap='size-250'
-                  margin='2vh'
+                  margin='1vh'
                 >
                   <View gridArea="optionsPicker">
                     <div className={styles.pickerGrid}>
