@@ -2,7 +2,7 @@ import styles from "../styles/Home.module.css";
 import { DateRangePicker, Button, Grid, View } from "@adobe/react-spectrum";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { today, parseDate } from "@internationalized/date";
+import { parseDate } from "@internationalized/date";
 import Select from "react-select";
 import makeAnimated from 'react-select/animated';
 import { leagueOptions } from "./utils";

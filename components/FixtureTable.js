@@ -47,7 +47,7 @@ const disableFixtures = (fixtureArray, selectedFixtureIndex, venueData, disabled
   return disabledSet;
 }
 
-export const FixtureTable = ( { footballData, venueData, setProgressMsg, setSelectedFixtures } ) => {
+export const FixtureTable = ( { footballData, venueData, setSelectedFixtures, selectedKeys, setSelectedKeys } ) => {
     let columns = [
       { name: '', uid: 'homelogo', width: "4%", align: "center" },
       { name: 'Home Team', uid: 'hometeam', width: "13.5%", align: "start" },
@@ -83,7 +83,7 @@ export const FixtureTable = ( { footballData, venueData, setProgressMsg, setSele
       });
     }
 
-    let [selectedKeys, setSelectedKeys] = useState(new Set([]));
+//    let [selectedKeys, setSelectedKeys] = useState(new Set([]));
     let [disabledFixtures, setDisabledFixtures] = useState(new Set([]));
 
     const obj = {1: [3, 4, 5], 2: [6, 7, 8]}; // Replace with calculated disabled games

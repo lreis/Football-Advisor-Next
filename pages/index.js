@@ -105,6 +105,8 @@ export async function getServerSideProps({
 export default function Home({ footballData, venueData, startDate, endDate, leagueArr, selectedMatchesArr }) {
   const [selectedFixtures, setSelectedFixtures] = useState([]);
   const [progressMsg, setProgressMsg] = useState('');
+  let [selectedKeys, setSelectedKeys] = useState(new Set([]));
+
   
   return (
     <SSRProvider>
@@ -159,8 +161,9 @@ export default function Home({ footballData, venueData, startDate, endDate, leag
                       <FixtureTable 
                         footballData={footballData} 
                         venueData={venueData}
-                        setProgressMsg={setProgressMsg}
                         setSelectedFixtures={setSelectedFixtures}
+                        selectedKeys={selectedKeys}
+                        setSelectedKeys={setSelectedKeys}
                         />
                     </div>
 
@@ -187,7 +190,7 @@ export default function Home({ footballData, venueData, startDate, endDate, leag
               </Item>
 
               <Item key="MaR">
-                <View gridArea="itineraryPDF">
+                <View gridArea="itinerary">
                   <Itinerary 
                     selectedFixtures={selectedFixtures}/>
                 </View>
