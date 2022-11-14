@@ -28,10 +28,10 @@ export async function getServerSideProps({
 }) {
 
   console.clear();
-  console.log('startDate: ' + startDate);
-  console.log('endDate: ' + endDate);
-  console.log('leagueArr: ' + leagueArr);
-  console.log('leagueOptions: ' + JSON.stringify(leagueOptions) + '\n');
+  console.log('getServerSideProps | startDate: ' + startDate);
+  console.log('getServerSideProps | endDate: ' + endDate);
+  console.log('getServerSideProps | leagueArr: ' + leagueArr);
+  console.log('getServerSideProps | leagueOptions: ' + JSON.stringify(leagueOptions) + '\n');
 
   if (typeof leagueArr === "string") {
     leagueArr = leagueArr.split(",");
@@ -105,10 +105,7 @@ export async function getServerSideProps({
 export default function Home({ footballData, venueData, startDate, endDate, leagueArr, selectedMatchesArr }) {
   const [selectedFixtures, setSelectedFixtures] = useState([]);
   const [progressMsg, setProgressMsg] = useState('');
-  console.log(startDate);
-  console.log(endDate);
-  console.log(leagueArr);
-
+  
   return (
     <SSRProvider>
       <Provider theme={defaultTheme} colorScheme="light">
@@ -131,10 +128,10 @@ export default function Home({ footballData, venueData, startDate, endDate, leag
               <div className={styles.main}>
 
                 <Grid
-                  areas={['optionsPicker optionsPicker progressSection  generateItinerary',
+                  areas={['optionsPicker optionsPicker optionsPicker progressSection',
                           'fixtureTable fixtureTable fixtureTable fixtureTable',
                           'itineraryPDF itineraryPDF footer footer']}
-                  columns={['1fr', '3fr', '1fr', '1fr']}
+                  columns={['1fr','1fr', '1fr', '1fr']}
                   rows={['3vh','auto','auto']}
                   height='95vh'
                   gap='size-250'

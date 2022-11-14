@@ -23,12 +23,8 @@
 
 .progressSection {
   color: blue;
-  font-size: 1rem;
-  margin: 7%;
-}
-
-.generateItinerary {
-  margin: 3%;
+  font-size: 0.75rem;
+  margin: 8%;
 }
 
 .fixtureTable {
@@ -44,7 +40,6 @@
   justify-content: center;
   align-items: center;
 }
-
 
 .grid {
   display: flex;
